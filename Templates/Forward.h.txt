@@ -1,0 +1,9 @@
+﻿#include <Windows.h>
+
+extern "C"
+{
+%0
+}
+
+VOID LoadDll();
+VOID FreeDll();

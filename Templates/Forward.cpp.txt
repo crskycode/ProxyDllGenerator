@@ -1,0 +1,27 @@
+﻿#include <Windows.h>
+
+extern "C"
+{
+%0
+}
+
+HMODULE g_Dll;
+
+VOID LoadDll()
+{
+	WCHAR Path[MAX_PATH];
+
+	GetSystemDirectoryW(Path, ARRAYSIZE(Path));
+
+	lstrcatW(Path, L"\\");
+	lstrcatW(Path, L"%1");
+
+	g_Dll = LoadLibraryW(Path);
+
+%2
+}
+
+VOID FreeDll()
+{
+	FreeLibrary(g_Dll);
+}
